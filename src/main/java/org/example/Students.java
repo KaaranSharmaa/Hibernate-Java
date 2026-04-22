@@ -7,10 +7,11 @@ import jakarta.persistence.Id;
 @Entity
 public class Students {
     @Id
-
-    private String Sname;
-    private int RollNo;
     private int Sid;
+    private int RollNo;
+    private String Sname;
+
+
 
     public int getRollNo(int i) {
         return RollNo;
