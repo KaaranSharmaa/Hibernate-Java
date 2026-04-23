@@ -223,3 +223,6 @@ HQL = SQL jaisa syntax, but Java objects ke liye
 //to fetch List<Students> list = session.createQuery("from Students", Students.class).list();
 //SQL SELECT * FROM students WHERE sid = 23;
 //HQL from Students where sid = 23
+
+
+get() hits DB immediately, load() returns proxy and fetches lazily
