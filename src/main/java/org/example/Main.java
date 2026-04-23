@@ -13,6 +13,8 @@ public class Main {
         students.setRollNo(104);
         students.setSid(4);
         students.setSname("Meet");
+
+
         // for insertion
 //        Configuration conf = new Configuration();
 //        conf.addAnnotatedClass(Students.class);
@@ -24,6 +26,8 @@ public class Main {
 //        tx.commit();
 //        session.close();
 //
+
+
 //        // to fetch
 //        Students s2 = null;
 //        Configuration conf = new Configuration();
@@ -38,6 +42,8 @@ public class Main {
 //
 //        session.close();
 
+
+        //toUpdate
 //        Configuration configuration = new Configuration();
 //        configuration.addAnnotatedClass(Students.class);
 //        configuration.configure();//for xml file
@@ -48,16 +54,17 @@ public class Main {
 //        transaction.commit();
 //        session.close();
 
-        Configuration conf =new Configuration();
-        conf.addAnnotatedClass(Students.class);
-        conf.configure();
-        SessionFactory ses=conf.buildSessionFactory();
-        Session session =ses.openSession();
-        Transaction tx=session.beginTransaction();
-        session.remove(students);
-
-        tx.commit();
-        session.close();
+//          to remove
+//          Configuration conf =new Configuration();
+//        conf.addAnnotatedClass(Students.class);
+//        conf.configure();
+//        SessionFactory ses=conf.buildSessionFactory();
+//        Session session =ses.openSession();
+//        Transaction tx=session.beginTransaction();
+//        session.remove(students);
+//
+//        tx.commit();
+//        session.close();
 
 
 

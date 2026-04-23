@@ -1,13 +1,13 @@
 package org.example;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+//@Table(name = "KARAN") this for table name
 public class Students {
     @Id
     private int Sid;
+    @Column(name = "SRollno")
     private int RollNo;
     private String Sname;
 
