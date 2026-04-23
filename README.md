@@ -210,3 +210,10 @@ get     → fetch
 merge   → update
 remove  → delete
 **********************************************************************************************************
+if we use entity like many to one! many to many toh in deafult lazy fecth use hota hai which means that 
+we query run nhi hoti unless you print it to we use fetch=FetchType=eager!
+Relationship	Default Fetch
+@ManyToOne	EAGER
+@OneToOne	EAGER
+@OneToMany	LAZY
+@ManyToMany	LAZY

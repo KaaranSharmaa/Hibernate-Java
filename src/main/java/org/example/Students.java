@@ -1,6 +1,8 @@
 package org.example;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.Type;
 
 @Entity
 //@Table(name = "KARAN") this for table name
