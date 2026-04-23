@@ -15,3 +15,99 @@ session.close();
 4. Operation karo (save/get/update/delete)
 5. Commit karo
 6. Session close karo
+
+**************************************************************************************************
+<property name="hibernate.show_sql">true</property> // to show sql querry
+<property name="hibernate.hbm2ddl.auto">update</property>//to create the table if not there
+**************************************************************************************************
+to fetch the data
+// Step 1: Hibernate configuration object create karo
+// → Ye hibernate.cfg.xml file ko load karega (DB config, mapping, etc.)
+Configuration conf = new Configuration();
+
+
+// Step 2: Entity class register karo
+// → Hibernate ko batate hain ki "Students" class DB se mapped hai
+conf.addAnnotatedClass(Students.class);
+
+
+// Step 3: Configuration load karo
+conf.configure();
+
+
+// Step 4: SessionFactory create karo
+// → DB connection factory (heavy object, ideally ek hi baar banta hai)
+SessionFactory sf = conf.buildSessionFactory();
+
+
+// Step 5: Session open karo
+// → DB ke saath interaction ke liye use hota hai
+Session session = sf.openSession();
+
+
+// Step 6: Data fetch karo (no transaction)
+// → Primary key (23) ke basis pe record fetch karega
+// → Agar record nahi mila toh null return karega
+Students s2 = session.get(Students.class, 23);
+
+
+// Step 7: Result print karo
+// → toString() override nahi hai toh object reference print hoga
+System.out.println(s2);
+
+
+// Step 8: Session close karo
+// → Resources free karne ke liye important
+session.close();
+
+Config → Register Class → Build Factory → Open Session →  Do Work  → Close
+**************************************************************************************************
+to insert
+// Step 1: Hibernate configuration object create karo
+// → Ye hibernate.cfg.xml file ko read karega (DB settings, mappings, etc.)
+Configuration conf = new Configuration();
+
+
+// Step 2: Entity class register karo
+// → Hibernate ko batate hain ki "Students" class DB table se mapped hai
+conf.addAnnotatedClass(Students.class);
+
+
+// Step 3: Configuration load karo
+// → hibernate.cfg.xml ko apply karta hai
+conf.configure();
+
+
+// Step 4: SessionFactory create karo (HEAVY object)
+// → DB ke liye connection factory
+// → Isko ideally ek hi baar create karna chahiye (singleton)
+SessionFactory sf = conf.buildSessionFactory();
+
+
+// Step 5: Session open karo
+// → DB ke saath actual interaction yahin se hota hai
+Session session = sf.openSession();
+
+
+// Step 6: Transaction start karo
+// → Insert/update/delete ke liye mandatory hota hai
+Transaction tx = session.beginTransaction();
+
+
+// Step 7: Object ko database me save karo
+// → "students" object ko DB table me insert karega
+// → Hibernate internally INSERT query banata hai
+session.persist(students);
+
+
+// Step 8: Transaction commit karo
+// → Data permanently DB me save ho jayega
+tx.commit();
+
+
+// Step 9: Session close karo
+// → Resources free karne ke liye important
+session.close();
+
+Config → Register Class → Build Factory → Open Session → Start Tx → Save → Commit → Close
+**************************************************************************************************
