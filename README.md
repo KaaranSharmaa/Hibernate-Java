@@ -226,3 +226,4 @@ HQL = SQL jaisa syntax, but Java objects ke liye
 
 
 get() hits DB immediately, load() returns proxy and fetches lazily
+.
